@@ -1,6 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:g_faraday/g_faraday.dart';
+import 'package:g_faraday_obj_demo/transparent_page.dart';
+
+
+
+
+
+
 
 void main() {
   runApp(DemoApp());
@@ -17,16 +24,22 @@ class _DemoAppState extends State<DemoApp> {
     return MaterialApp(
       onGenerateRoute: (settings) => faraday.wrapper(
         (settings) => MaterialPageRoute(
-          builder: (context) => Scaffold(
-            body: Container(
-              child: Center(
-                child: TextButton(
-                  child: Text('pop'),
-                  onPressed: () => Navigator.of(context).pop(),
+          builder: (context) {
+            if (settings.name == "home") {
+              return Scaffold(
+                body: Container(
+                  color: Colors.transparent,
+                  child: Center(
+                    child: TextButton(
+                      child: Text('pop'),
+                      onPressed: () => Navigator.of(context).pop(),
+                    ),
+                  ),
                 ),
-              ),
-            ),
-          ),
+              );
+            }
+            return TransparentPage();
+          }
         ),
       ),
     );

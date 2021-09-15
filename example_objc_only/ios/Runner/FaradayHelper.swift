@@ -34,4 +34,8 @@ import g_faraday
     @objc static func enableCallback(_ viewController: FaradayFlutterViewController, callback token: CallbackToken) {
         viewController.fa.enableCallback(with: token)
     }
+    
+    @objc static func refreshViewController(_ viewController: FaradayFlutterViewController) {
+        Faraday.refreshViewController(viewController)
+    }
 }
